@@ -1,4 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 29 16:28:34 2021
+
+@author: INVERAV
+"""
+
 # Python imports e.g., os, math...
+from collections import defaultdict 
 import argparse
 import joblib
 import os
@@ -12,9 +20,9 @@ import numpy as np
 import pandas as pd
 
 # sklearn imports e.g., linear_model,..
+from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-
 
 # Azure imports e.g., Workspace,...
 from azureml.core.run import Run
@@ -30,11 +38,9 @@ nsl_kdd_webpath = [
 #create network analysis data set in tabular format using TabularDatasetFactory
 nsl_kdd_dataset = TabularDatasetFactory.from_delimited_files(path=nsl_kdd_webpath)
 
-
-def clean_data(data):
-    
-    # column names
-    network_data_column_names = [ 
+class NSLKDDFeatureAnalysis:
+   # class variables
+   network_data_column_names = [ 
                   'duration', 'protocol_type', 'service',
                   'flag', 'src_bytes', 'dst_bytes',
                   'land', 'wrong_fragment', 'urgent',
@@ -58,26 +64,51 @@ def clean_data(data):
     
                    'attack_type',
                    'success_pred' ]
-    
-    
-    train_df = data.to_pandas_dataframe().dropna()
-    train_df.columns = network_data_column_names
-    
-    # For this analysis we drop "success_pred" column
-    train_df.drop('success_pred', axis=1, inplace=True)
-    
-    # Drop attack type in training data which is to be predicted.
-    train_X = train_df.drop("attack_type", axis=1)
-    train_Y = train_df['attack_type']
-    
-    # we build binary classifier for this.
-    train_Y = train_Y.apply(lambda x: 0 if x == 'normal' else 1)    
-    
-    return train_X, train_Y
-    
+   trained_column_names_dummy = []
+   strd_scalar_continious = 0
 
-
+   def __init__(self, data):
+      self.train_data = data
+      
+   def clean_data(self):
+      train_df = self.train_data.to_pandas_dataframe().dropna()
+      train_df.columns = NSLKDDFeatureAnalysis.network_data_column_names
     
+	  # For this analysis we drop "success_pred" column
+      train_df.drop('success_pred', axis=1, inplace=True)
+    
+	  # Drop attack type in training data which is to be predicted.
+      train_X = train_df.drop("attack_type", axis=1)
+      train_Y = train_df['attack_type']
+
+	  # convert categorical types to dummy variables.    
+      feature_type_to_names_mapping = defaultdict(list)
+		
+      with open('KDDDataFeatureNamesToTypes.txt', 'r') as f:
+          #read from line 1. skip line 0 as in given file we have attack names here which we don't need.
+          for line in f.readlines()[1:]:
+              name, nature = line.strip()[:-1].split(': ')
+              feature_type_to_names_mapping[nature].append(name)
+		
+	  # Generate dummy variables for categorical types
+      train_data_X = pd.get_dummies(train_X, columns=feature_type_to_names_mapping['symbolic'], drop_first=False)
+		
+      # standarize continious feature
+      continuous_features = feature_type_to_names_mapping['continuous']
+      NSLKDDFeatureAnalysis.strd_scalar_continious = StandardScaler().fit(train_data_X[continuous_features])
+	  # Standardize training data
+      train_data_X[continuous_features] = NSLKDDFeatureAnalysis.strd_scalar_continious.transform(train_data_X[continuous_features])
+
+	  # we build binary classifier for this.
+      train_Y = train_Y.apply(lambda x: 0 if x == 'normal' else 1)  
+
+      NSLKDDFeatureAnalysis.trained_column_names_dummy = train_data_X.columns
+		
+      return train_data_X, train_Y
+      
+   
+
+    	
 def main():
     
     run = Run.get_context()
@@ -94,7 +125,8 @@ def main():
     run.log("Max depth:", args.max_depth)
     
     # VRK: Data cleaning step
-    x, y = clean_data(nsl_kdd_dataset )
+    NSLKDDFeatureAnalysis nsl_data(nsl_kdd_dataset)
+    x, y = nsl_data_analysis.clean_data()
     # VRK: Split data into train and test sets.
     x_train, x_test, y_train, y_test = train_test_split(x,y)
     
@@ -105,8 +137,16 @@ def main():
     
     #VRK:Save the model.
     os.makedirs('outputs', exist_ok=True)
-    joblib.dump(decisiontree_attack_classifier, 'outputs/vrk_bankmodel.joblib')
+    joblib.dump(decisiontree_attack_classifier, 'outputs/vrk_ids_model.joblib')
     run.log("Accuracy", np.float(accuracy))
+    return
+
 
 if __name__ == '__main__':
-    main()
+    main()    
+	
+	
+
+    
+   
+    

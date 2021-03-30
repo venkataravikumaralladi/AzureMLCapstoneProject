@@ -32,7 +32,7 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 
 # create nsl-kdd network train data
 nsl_kdd_webpath = [
-                          'https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/KDDTrain%2B.txt'
+                          'https://raw.githubusercontent.com/venkataravikumaralladi/AzureMLCapstoneProject/main/KDDTrain.csv'
                   ]
 
 #create network analysis data set in tabular format using TabularDatasetFactory
@@ -73,7 +73,7 @@ class NSLKDDFeatureAnalysis:
    def clean_data(self):
       train_df = self.train_data.to_pandas_dataframe().dropna()
       train_df.columns = NSLKDDFeatureAnalysis.network_data_column_names
-    
+          
 	  # For this analysis we drop "success_pred" column
       train_df.drop('success_pred', axis=1, inplace=True)
     
@@ -125,8 +125,9 @@ def main():
     run.log("Max depth:", args.max_depth)
     
     # VRK: Data cleaning step
-    NSLKDDFeatureAnalysis nsl_data(nsl_kdd_dataset)
+    nsl_data_analysis = NSLKDDFeatureAnalysis(nsl_kdd_dataset)
     x, y = nsl_data_analysis.clean_data()
+    
     # VRK: Split data into train and test sets.
     x_train, x_test, y_train, y_test = train_test_split(x,y)
     
@@ -134,7 +135,7 @@ def main():
     decisiontree_attack_classifier.fit(x_train, y_train)
     
     accuracy = decisiontree_attack_classifier.score(x_test, y_test)
-    
+        
     #VRK:Save the model.
     os.makedirs('outputs', exist_ok=True)
     joblib.dump(decisiontree_attack_classifier, 'outputs/vrk_ids_model.joblib')

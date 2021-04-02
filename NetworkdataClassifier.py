@@ -11,7 +11,7 @@ import argparse
 import joblib
 import os
 import json
-from pickle import dump
+import pickle
 
 # Third party libraries imports
 
@@ -71,6 +71,7 @@ class NSLKDDFeatureAnalysis:
       self.train_data = data
       
    def clean_data(self):
+      
       train_df = self.train_data.to_pandas_dataframe().dropna()
       train_df.columns = NSLKDDFeatureAnalysis.network_data_column_names
           
@@ -103,21 +104,21 @@ class NSLKDDFeatureAnalysis:
 	  # we build binary classifier for this.
       train_Y = train_Y.apply(lambda x: 0 if x == 'normal' else 1)  
 
-            
       ids_columns_details_dict = {
                       "orig_network_data_column_names": NSLKDDFeatureAnalysis.network_data_column_names,
                       "continious_features" : continuous_features,
                       "symbolic_names" : symbolic_features,
-                      "trained_model_column_names": train_data_X.columns
+                      "trained_model_column_names": train_data_X.columns.tolist()
                       }
 		
       # write feature engineering column detials to ids_feature_cols
-      with open('ids_feature_cols.txt', 'w') as filehandle:
+      with open('ids_feature_details.json', 'w') as filehandle:
           json.dump(ids_columns_details_dict, filehandle)
+      
           
       # write standard scalar object created with trained object for later use for test data.
-      dump(strd_scalar_continious, open('ids_cont_scalerobj.pkl', 'wb'))
-      
+      pickle.dump(strd_scalar_continious, open('ids_cont_scalerobj.pkl', 'wb'))
+            
       return train_data_X, train_Y
       
    
@@ -158,6 +159,7 @@ def main():
 
 
 if __name__ == '__main__':
+    
     main()    
 	
 	

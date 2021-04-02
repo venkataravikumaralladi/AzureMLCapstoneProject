@@ -10,6 +10,8 @@ from collections import defaultdict
 import argparse
 import joblib
 import os
+import json
+from pickle import dump
 
 # Third party libraries imports
 
@@ -64,9 +66,7 @@ class NSLKDDFeatureAnalysis:
     
                    'attack_type',
                    'success_pred' ]
-   trained_column_names_dummy = []
-   strd_scalar_continious = 0
-
+   
    def __init__(self, data):
       self.train_data = data
       
@@ -95,15 +95,29 @@ class NSLKDDFeatureAnalysis:
 		
       # standarize continious feature
       continuous_features = feature_type_to_names_mapping['continuous']
-      NSLKDDFeatureAnalysis.strd_scalar_continious = StandardScaler().fit(train_data_X[continuous_features])
+      symbolic_features   = feature_type_to_names_mapping['symbolic']
+      strd_scalar_continious = StandardScaler().fit(train_data_X[continuous_features])
 	  # Standardize training data
-      train_data_X[continuous_features] = NSLKDDFeatureAnalysis.strd_scalar_continious.transform(train_data_X[continuous_features])
+      train_data_X[continuous_features] = strd_scalar_continious.transform(train_data_X[continuous_features])
 
 	  # we build binary classifier for this.
       train_Y = train_Y.apply(lambda x: 0 if x == 'normal' else 1)  
 
-      NSLKDDFeatureAnalysis.trained_column_names_dummy = train_data_X.columns
+            
+      ids_columns_details_dict = {
+                      "orig_network_data_column_names": NSLKDDFeatureAnalysis.network_data_column_names,
+                      "continious_features" : continuous_features,
+                      "symbolic_names" : symbolic_features,
+                      "trained_model_column_names": train_data_X.columns
+                      }
 		
+      # write feature engineering column detials to ids_feature_cols
+      with open('ids_feature_cols.txt', 'w') as filehandle:
+          json.dump(ids_columns_details_dict, filehandle)
+          
+      # write standard scalar object created with trained object for later use for test data.
+      dump(strd_scalar_continious, open('ids_cont_scalerobj.pkl', 'wb'))
+      
       return train_data_X, train_Y
       
    

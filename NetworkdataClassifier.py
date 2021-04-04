@@ -112,12 +112,13 @@ class NSLKDDFeatureAnalysis:
                       }
 		
       # write feature engineering column detials to ids_feature_cols
-      with open('ids_feature_details.json', 'w') as filehandle:
+      os.makedirs('outputs', exist_ok=True)
+      with open('outputs/ids_feature_details.json', 'w') as filehandle:
           json.dump(ids_columns_details_dict, filehandle)
       
           
       # write standard scalar object created with trained object for later use for test data.
-      pickle.dump(strd_scalar_continious, open('ids_cont_scalerobj.pkl', 'wb'))
+      pickle.dump(strd_scalar_continious, open('outputs/ids_cont_scalerobj.pkl', 'wb'))
             
       return train_data_X, train_Y
       

@@ -12,13 +12,24 @@ import azureml.train.automl
 
 def init():
     global deploy_model
-    deploy_model = joblib.load('outputs/vrk_ids_model.joblib')
+    global read_dict
+    global standard_scaler
+    
+    #Get the path where the deployed model can be found
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'outputs')
+    #load models
+    deploy_model = joblib.load(model_path + '/vrk_ids_model.joblib')
+    
+    #load column names
+    with open(model_path +'/ids_feature_details.json', 'r') as filehandle:
+        read_dict = json.load(filehandle)
+    
+    #load scaler object which is trained with train data
+    standard_scaler = load(open(model_path + '/ids_cont_scalerobj.pkl', 'rb'))
     
     
 def transform_test_data(input_test_data):
-    #load column names
-    with open('ids_feature_details.json', 'r') as filehandle:
-        read_dict = json.load(filehandle)
+    
     # in dictionary keys are network_data_column_names, continious_features, symbolic_features, and
     # trained_model_column_names
     network_data_column_names_orig = read_dict['network_data_column_names']
@@ -38,9 +49,7 @@ def transform_test_data(input_test_data):
     # Ensure the order of column in the test set is in the same order that in train set
     input_test_data = input_test_data[trained_model_column_names]
     
-    #load scaler object which is trained with train data
-    standard_scaler = load(open('ids_cont_scalerobj.pkl', 'rb'))
-    
+        
     input_test_data[continuous_features] = standard_scaler.transform(input_test_data[continuous_features])
     return input_test_data
 

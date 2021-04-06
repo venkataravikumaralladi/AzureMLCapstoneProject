@@ -31,14 +31,23 @@ def transform_test_data(input_test_data):
     
     # in dictionary keys are network_data_column_names, continious_features, symbolic_features, and
     # trained_model_column_names
-    network_data_column_names_orig = read_dict['network_data_column_names']
+    #print("Input test data shape ", input_test_data.shape)
+     
+    network_data_column_names_orig = read_dict['orig_network_data_column_names']
     continious_features            = read_dict['continious_features']
-    symbolic_features              = read_dict['symbolic_features']
+    symbolic_features              = read_dict['symbolic_names']
     trained_model_column_names     = read_dict['trained_model_column_names']
+    
+    #print("continious_features ", continious_features)
+    #print("symbolic_features ", symbolic_features)
+    #print("trained_model_column_names ", trained_model_column_names)
+    
     
     # for this project we don't use 'success_pred' and we are predicting the 'attack_type' so remove 'attack_type'
     # data.columns = set(network_data_column_names_orig) - set(['attack_type', 'success_pred'])
     input_test_data = pd.get_dummies(input_test_data, columns=symbolic_features)
+    
+    #print("Input test data shape after get dummies ", input_test_data.shape)
     
     # Get missing columns in the input test data
     missing_cols = set( trained_model_column_names ) - set( input_test_data.columns )
@@ -48,8 +57,13 @@ def transform_test_data(input_test_data):
     # Ensure the order of column in the test set is in the same order that in train set
     input_test_data = input_test_data[trained_model_column_names]
     
+    #print("Input test data shape added get dummies ", input_test_data.shape)
         
-    input_test_data[continuous_features] = standard_scaler.transform(input_test_data[continuous_features])
+    #input_test_data[continious_features] = standard_scaler.transform(input_test_data[continious_features])
+    input_test_data[continious_features] = standard_scaler.transform(input_test_data[continious_features])
+    
+    #print("Input test data shape after apply scalar ", input_test_data.shape)
+    
     return input_test_data
 
 def run(data):
@@ -58,8 +72,10 @@ def run(data):
         data = pd.DataFrame(temp['data'])
         transformed_test_data = transform_test_data(data)
         result = deploy_model.predict(transformed_test_data)
+        print("Result is ", result)
         # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
     except Exception as e:
         error = str(e)
+        prinrt("Error occured ", error)
         return error

@@ -4,10 +4,8 @@ import pandas as pd
 import json
 import pickle
 import logging 
+import joblib
 
-#from azureml.core import Model
-from sklearn.externals import joblib
-import azureml.train.automl
 
 
 def init():
@@ -17,6 +15,7 @@ def init():
     
     #Get the path where the deployed model can be found
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'outputs')
+    print("Model path ", model_path)
     #load models
     deploy_model = joblib.load(model_path + '/vrk_ids_model.joblib')
     
@@ -25,7 +24,7 @@ def init():
         read_dict = json.load(filehandle)
     
     #load scaler object which is trained with train data
-    standard_scaler = load(open(model_path + '/ids_cont_scalerobj.pkl', 'rb'))
+    standard_scaler = pickle.load(open(model_path + '/ids_cont_scalerobj.pkl', 'rb'))
     
     
 def transform_test_data(input_test_data):

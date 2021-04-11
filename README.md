@@ -27,7 +27,9 @@ Between the AutoML and Hyperdrive experiment runs, a best performing model was s
 
 ![Deployment architecuture snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/IntrusionDetectionSystemDeploymentPart.png)
 
-In this I will showcase how we can use data science as a investigation tool for network traffic, here we use classfication algorithm to distinguish between normal traffic (good connections) and intrusion or attacks traffic (bad connections). A connection is a sequence of TCP packets starting and ending at some well difined times, between which data flows to and from source IP address  to a target IP address under some well defined protocol. We will create Intrusion Detection System (IDS) 
+In this I will showcase how we can use data science as a investigation tool for network traffic, here we use classfication algorithm to distinguish between normal traffic (good connections) and intrusion or attacks traffic (bad connections). A connection is a sequence of TCP packets starting and ending at some well difined times, between which data flows to and from source IP address  to a target IP address under some well defined protocol. We will create Intrusion Detection System (IDS). 
+
+`Credits`:Ideas and references are taken from book Machine Learning and Security by Clarence Chio and David Freeman Published by O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
 
 
 ## Project Set Up and Installation

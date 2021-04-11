@@ -196,3 +196,7 @@ Planning to work on following activities
 
 * I am planning to work on indentifying type of attack if attack is detected. <br>
 * Planning to work on conversion of registered model to ONNX format, allowing one to interchange models between various ML frameworks and tools.
+
+## Training cluster deleted
+Following snap shot shows training cluster is deleted after training.
+![training cluster deleted](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/Deletesnapshot.png)

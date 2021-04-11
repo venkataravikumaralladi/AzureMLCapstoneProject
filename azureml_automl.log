@@ -1,0 +1,72 @@
+2021-04-11 05:54:09.604 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package azureml-train-automl missing from dependencies file.
+2021-04-11 05:54:09.605 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: azureml-train-automl==1.26.0.*
+2021-04-11 05:54:09.605 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package pandas missing from dependencies file.
+2021-04-11 05:54:09.605 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: pandas==0.25.1
+2021-04-11 05:54:09.606 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package psutil missing from dependencies file.
+2021-04-11 05:54:09.606 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: psutil>5.0.0,<6.0.0
+2021-04-11 05:54:09.606 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package scikit-learn missing from dependencies file.
+2021-04-11 05:54:09.607 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: scikit-learn==0.22.1
+2021-04-11 05:54:09.607 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package numpy missing from dependencies file.
+2021-04-11 05:54:09.607 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: numpy~=1.18.0
+2021-04-11 05:54:09.608 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package py-xgboost missing from dependencies file.
+2021-04-11 05:54:09.608 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: py-xgboost<=0.90
+2021-04-11 05:54:09.608 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package inference-schema missing from dependencies file.
+2021-04-11 05:54:09.609 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package fbprophet missing from dependencies file.
+2021-04-11 05:54:09.609 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: fbprophet==0.5
+2021-04-11 05:54:09.609 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package setuptools-git missing from dependencies file.
+2021-04-11 05:54:09.610 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:209 - Using installed version: setuptools-git==1.2
+2021-04-11 05:54:09.618 - INFO - 4805 - azureml.automl.core.dataset_utilities._save_datasets_to_json:131 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2021-04-11 05:54:09.619 - INFO - 4805 - azureml.automl.core.dataset_utilities._save_datasets_to_json:131 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2021-04-11 05:54:09.620 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:124 - Start data validation.
+2021-04-11 05:54:12.709 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:137 - Validation service found the data has no errors.
+2021-04-11 05:54:12.709 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:381 - Start creating parent run.
+2021-04-11 05:54:13.257 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:401 - [ParentRunID:AutoML_bec0b07b-b71a-43bb-8e45-122d7892d54e] Remote run using input X and y.
+2021-04-11 05:54:13.351 - INFO - 4805 - azureml.train.automl._experiment_drivers.driver_utilities.start_remote_run:336 - Starting a snapshot run (snapshot_id : None)
+2021-04-11 05:57:56.376 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package azureml-train-automl missing from dependencies file.
+2021-04-11 05:57:56.382 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: azureml-train-automl==1.26.0.*
+2021-04-11 05:57:56.386 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package pandas missing from dependencies file.
+2021-04-11 05:57:56.395 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: pandas==0.25.1
+2021-04-11 05:57:56.400 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package psutil missing from dependencies file.
+2021-04-11 05:57:56.406 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: psutil>5.0.0,<6.0.0
+2021-04-11 05:57:56.411 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package scikit-learn missing from dependencies file.
+2021-04-11 05:57:56.415 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: scikit-learn==0.22.1
+2021-04-11 05:57:56.420 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package numpy missing from dependencies file.
+2021-04-11 05:57:56.425 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: numpy~=1.18.0
+2021-04-11 05:57:56.429 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package py-xgboost missing from dependencies file.
+2021-04-11 05:57:56.434 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: py-xgboost<=0.90
+2021-04-11 05:57:56.438 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package inference-schema missing from dependencies file.
+2021-04-11 05:57:56.443 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package fbprophet missing from dependencies file.
+2021-04-11 05:57:56.448 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: fbprophet==0.5
+2021-04-11 05:57:56.452 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package setuptools-git missing from dependencies file.
+2021-04-11 05:57:56.456 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:209 - Using installed version: setuptools-git==1.2
+2021-04-11 05:57:56.461 - INFO - 5078 - azureml.automl.core.dataset_utilities._save_datasets_to_json:131 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2021-04-11 05:57:56.470 - INFO - 5078 - azureml.automl.core.dataset_utilities._save_datasets_to_json:131 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2021-04-11 05:57:56.475 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:124 - Start data validation.
+2021-04-11 05:57:59.953 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:137 - Validation service found the data has no errors.
+2021-04-11 05:57:59.966 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:381 - Start creating parent run.
+2021-04-11 05:58:00.319 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:401 - [ParentRunID:AutoML_06f549d7-68ea-49b4-8fdd-88a1b7baf455] Remote run using input X and y.
+2021-04-11 05:58:00.397 - INFO - 5078 - azureml.train.automl._experiment_drivers.driver_utilities.start_remote_run:336 - Starting a snapshot run (snapshot_id : None)
+2021-04-11 06:26:08.931 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package azureml-train-automl missing from dependencies file.
+2021-04-11 06:26:08.937 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: azureml-train-automl==1.26.0.*
+2021-04-11 06:26:08.942 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package pandas missing from dependencies file.
+2021-04-11 06:26:08.946 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: pandas==0.25.1
+2021-04-11 06:26:08.950 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package psutil missing from dependencies file.
+2021-04-11 06:26:08.954 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: psutil>5.0.0,<6.0.0
+2021-04-11 06:26:08.958 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package scikit-learn missing from dependencies file.
+2021-04-11 06:26:08.963 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: scikit-learn==0.22.1
+2021-04-11 06:26:08.967 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package numpy missing from dependencies file.
+2021-04-11 06:26:08.971 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: numpy~=1.18.0
+2021-04-11 06:26:08.975 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package py-xgboost missing from dependencies file.
+2021-04-11 06:26:08.982 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: py-xgboost<=0.90
+2021-04-11 06:26:08.987 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package inference-schema missing from dependencies file.
+2021-04-11 06:26:08.991 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package fbprophet missing from dependencies file.
+2021-04-11 06:26:08.995 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:205 - Using pinned version: fbprophet==0.5
+2021-04-11 06:26:09.000 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:199 - Package setuptools-git missing from dependencies file.
+2021-04-11 06:26:09.004 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:209 - Using installed version: setuptools-git==1.2
+2021-04-11 06:26:09.014 - INFO - 17406 - azureml.automl.core.dataset_utilities._save_datasets_to_json:131 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2021-04-11 06:26:09.020 - INFO - 17406 - azureml.automl.core.dataset_utilities._save_datasets_to_json:131 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2021-04-11 06:26:09.028 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:124 - Start data validation.
+2021-04-11 06:26:11.964 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:137 - Validation service found the data has no errors.
+2021-04-11 06:26:11.970 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:381 - Start creating parent run.
+2021-04-11 06:26:12.508 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:401 - [ParentRunID:AutoML_8a96112e-4bf2-4dc7-8c8c-1ca10cb4c888] Remote run using input X and y.
+2021-04-11 06:26:12.879 - INFO - 17406 - azureml.train.automl._experiment_drivers.driver_utilities.start_remote_run:336 - Starting a snapshot run (snapshot_id : None)

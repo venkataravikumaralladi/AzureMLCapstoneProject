@@ -88,12 +88,48 @@ In case AutomML project above clean up of data is not performed as it handled au
 Once the dataset was downloaded, SDK was again used to clean and split the data into training and validation datasets, which were then stored as Pandas dataframes in memory to facilitate quick data exploration and query, and registered as AML TabularDatasets in the workspace to enable remote access by the AutoML experiment running on a remote compute cluster.
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+
+Intrusion Detection system is a classification task. According AutomMLConfigParameters are set which are used for this job as mentioned here.
+
+AutoML Settings:
+
+`max_cores_per_iteration` = 1 <br>
+`max_concurrent_iterations` = 1 <br>
+`featurization` = auto (by default so not set here in above) AutoMLConfig provides featurization arguments by default auto which provided learning features automatically.<br>
+`n_cross_validations` = 5 Number of cross validations to perform configured are 5. <br>
+`experiment timeout_minutes` = 30 minutes is set according to lab time provided.<br>
+`primary_metric`= accuracy is used as provided dataset is balanced and is best suited for job at hand. <br>
+
+AutoML Config:
+
+`training_data`= Registered tabular data pointer in default data store is provided here. <br>
+`blocked_modles` =  In this project I blocked XGBoostClassifier as I am facing issues in importing the model created in AutoML environment to compute envirnoment due to version
+                    difference of XGBoost library. <br>
+`label_column_name`= attack_type is one we have to predict if traffic is normal or attack. <br>
+`compute_target` = The Azure Machine Learning compute target to run the Automated Machine Learning experiment on. <br>
+
+AutoML is run on compute cluster named "cpu_cluster".  AutoML Run details snap shot is attached below
+
+![AutomML Widget snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLWidgetOuput.png)
+
+AutoML Best model with RunID
+
+![AutomML best model with RunID](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLBestModelWithRunId.png)
+
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+Various model explored by AutomML snapshot is shown below
+
+![AutomML various models explored](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLModelsExplored.png)
+
+Auto ML gave best model accuracy of `0.9990`. Model selected is `StackEnsembleClassifier`and parameters of model is shown in below snapshot.
+
+![AutomML best model parameters](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutomMLBestModelDetails.png)
+
+Confusion matrix of best model selected is shown below
+
+![AutomML best model confusion matrix](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLConfusionMatrix.png)
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search

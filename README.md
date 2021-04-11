@@ -83,6 +83,8 @@ Once Tabular data set was downloaded, it is converted to pandas data frame, clea
 
 In case AutomML project above clean up of data is not performed as it handled automatically by Azure AutoML module.In case of AutoML I uploaded csv file to default data store in Azure. After that I get data set pointer to data store for network training data and passed as an argument for "training_data" in AutoMLConfig API.
 
+![Overview Azure enviroment](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/hyperdrive/DataSnapshotImportedToAzure.png)
+
 Once the dataset was downloaded, SDK was again used to clean and split the data into training and validation datasets, which were then stored as Pandas dataframes in memory to facilitate quick data exploration and query, and registered as AML TabularDatasets in the workspace to enable remote access by the AutoML experiment running on a remote compute cluster.
 
 ## Automated ML

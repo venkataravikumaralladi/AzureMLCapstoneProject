@@ -10,10 +10,11 @@ Table of contents
 * [Project Set Up and Installation](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#project-set-up-and-installation)
 * [Dataset](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#dataset)
 * [Automated ML](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#automated-ml)
-* [Hyperparameter Tuning](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#hyperparameter-tuning)
-* [Model Deployment](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#model-deployment)
-* [Screen Recording](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#screen-recording)
-* [Standout Suggestions](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#standout-suggestions)
+* [Hyperparameter tuning](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#hyperparameter-tuning)
+* [Model deployment](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#model-deployment)
+* [Screen recording](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#screen-recording)
+* [Standout suggestions](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#standout-suggestions)
+* [Future work](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#future-work)
 <!--te-->
 
 ## Summary

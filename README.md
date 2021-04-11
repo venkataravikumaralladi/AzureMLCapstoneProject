@@ -167,7 +167,6 @@ Best run hyperdrive decision tree classifier hyper parameters snapshot is provid
 
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 Deployment is about delivering a trained model in to production so that it can be consumed by other. Here we deploy best model which is from AutoML with accuracy `0.9990`.
 Here we deploy a model as a webservice on Azure Container Instance (ACI). Request is sent to service through scoring uri. Here we write entry script (`inference\autoscore.py`)
@@ -175,23 +174,19 @@ receives data submitted to a deployed web service, perform any actions that requ
 
 Below show input accept by IDS service.
 
+![Service input and response](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/deploy/InputParametersAndResponse.png)
 
 Below snap shot shows deployed end point in azure in healthy state.
 
 ![Deployed end point snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/deploy/DeployStatus.png)
 
 
-Below snap shot shows application insights snap shot of service
-
-![Deployed end point application](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/deploy/DeployStatus.png)
-
-
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+
+Screen cast link
+
+![screen cast link] (https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/CapstoneProjScreencast.mp4)
 
 ## Standout Suggestions
 *TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.

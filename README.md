@@ -132,13 +132,39 @@ Confusion matrix of best model selected is shown below
 ![AutomML best model confusion matrix](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLConfusionMatrix.png)
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+
+`DecisionTreeClassifier` is used for binary classification for network data traffic. Data reading, cleaning, transformation and model training is performed by me 
+using pandas and scikit in `NetworkdataClassifier.py`.
+
+`NetworkdataClassifier.py` accepts first argument as `-- criterion`(which measures quality of split), supported split criteria are “gini” for the Gini impurity and “entropy”
+ for the information gain.
+
+`NetworkdataClassifier.py` accepts second argument as `--max_depth`(the maximum depth of the tree). max_depth are sampled using choice(60,90, 120). Small max depth
+ values correspond to small size trees and hight values of max depth corresponds to large trees.
+
+Decision tree classifier is selected as it can handle categorical and real-valued features with ease—little to no preprocessing required. In this case we have lot of features and it is not clear from data,is data is linearly seperable so decision tree classifier is selected.
+
+The HyperDrive experiment run was configured with parameter settings as follows:
+
+Grid parameter sampling is chosen values in hyper parameters value space. In this scenario we don't have large search space and we have discrete parameter sampling. Grid sampling does a simple grid search over all possible values.
+
+By specifying early termination policy we can automatically terminate poorly performing runs. Early termination improves computational efficiency. Bandit early termination policy is used to stop training if performance of current run is not with in the best run limits to avoid resource usage. Median stopping is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs with primary metric values worse than the median of averages. I have choosen Bandit early for aggressive termination, where as median stopping can be used if we don't want aggresive termination.
 
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+Hyperdrive ML gave best model accuracy of `0.9987`. Decision tree classifier with parameters ['--criterion', 'gini', '--max_depth', '90'] is selected.
+Hyperdrive `RunDetails` widget snapshot is shown below
+
+![Hyperparam run details](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/hyperdrive/HyperdriveRunWidgetSnapshot.png)
+
+![Hyperdrive runs](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/hyperdrive/HyperdriveChildRuns.png)
+
+Best run hyperdrive decision tree classifier hyper parameters snapshot is provided below
+
+![Hyper drive bestrun hyper parameters](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/hyperdrive/HyperdriveBestRunIDWithParameters.png)
+
+
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.

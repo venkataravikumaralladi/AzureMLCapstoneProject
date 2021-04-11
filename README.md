@@ -6,13 +6,14 @@ Table of contents
 =================
 
 <!--ts-->
-* [Summary](https://github.com/venkataravikumaralladi/MachineLearingOperationsProject/blob/master/starter_files/README.md#summaryy)
-* [Architectural Diagram](https://github.com/venkataravikumaralladi/MachineLearingOperationsProject/tree/master/starter_files#architectural-diagram)
-* [Dataset](https://github.com/venkataravikumaralladi/MachineLearingOperationsProject/tree/master/starter_files#dataset)
-* [Project improvements in future](https://github.com/venkataravikumaralladi/MachineLearingOperationsProject/blob/master/starter_files/README.md#a-short-description-of-how-to-improve-project-in-future)
-* [Key steps](https://github.com/venkataravikumaralladi/MachineLearingOperationsProject/tree/master/starter_files#key-steps)
-* [Screen recording](https://github.com/venkataravikumaralladi/MachineLearingOperationsProject/tree/master/starter_files#screen-recording)
-* [Standout suggestions](https://github.com/venkataravikumaralladi/MachineLearingOperationsProject/tree/master/starter_files#standout-suggestions)
+* [Summary](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#summary)
+* [Project Set Up and Installation](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#project-set-up-and-installation)
+* [Dataset](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#dataset)
+* [Automated ML](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#automated-ml)
+* [Hyperparameter Tuning](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#hyperparameter-tuning)
+* [Model Deployment](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#model-deployment)
+* [Screen Recording](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#screen-recording)
+* [Standout Suggestions](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject#standout-suggestions)
 <!--te-->
 
 ## Summary

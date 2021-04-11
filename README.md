@@ -186,7 +186,13 @@ Below snap shot shows deployed end point in azure in healthy state.
 
 Screen cast link
 
-![screen cast link] (https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/CapstoneProjScreencast.mp4)
+![screen cast link](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/CapstoneProjScreencast.mp4)
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+I have performed deployment of hyper model for study purpose how to use various standarization techniques developed during training to be used and applied for request. I studied about enabling application insights after deployment.
+
+## Future work
+Planning to work on following activities
+
+* I am planning to work on indentifying type of attack if attack is detected. <br>
+* Planning to work on conversion of registered model to ONNX format, allowing one to interchange models between various ML frameworks and tools.

@@ -38,7 +38,9 @@ If you are using an Azure Machine Learning Notebook VM, you are all set. Otherwi
   * Install Azure ML SDK, python 3.6, Pandas, numpy, and scikit librarires.
   * In this project we use Azure Container Instance (ACI) for deployment. An Azure subscription needs to be registered to use ACI.
   
-  
+ Overview of Azure environment snapshot is shown below
+ 
+ ![Overview Azure enviroment](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/AzureOverview.png)
 
 By fulfilling above requirements we can able to build Intrusion Detection System (IDS). IDS system is build using hyper drive concepts using Random Forest model (NetworkdataClassifier.py) implemented in hyperparameter_tuning.ipynb. Alternatively IDS model system is built using AutoML feature implemented in automl.ipynb. Best model is selected and deployed as webservice in Azure Container Instance (ACI).
 
@@ -46,7 +48,7 @@ By fulfilling above requirements we can able to build Intrusion Detection System
 
 ### Overview
 The dataset we use for Intrusion Detection System (IDS) is NSLKDD dataset, (A Detailed Analysis of the KDD CUP 99 Data Set,” Proceedings of the 2nd IEEE Symposium
-on Computational Intelligence in Security and Defense Applications (2009): 53–58.) which is an improvement  to a classic network intrusion detection dataset used widely by security data science professionals. The original 1999 KDD Cup dataset was created for the DARPA Intrusion Detection Evaluation Program, prepared and managed by MIT Lincoln Laboratory. The data was collected over nine weeks and consists of raw tcpdump traffic in a local area network (LAN) that simulates the environment of a typical United States Air Force LAN. Some network attacks were deliberately carried out during the recording period.
+on Computational Intelligence in Security and Defense Applications (2009): 53–58.) which is an improvement  to a classic network intrusion detection dataset used widely by security data science professionals. The original 1999 KDD Cup dataset was created for the DARPA Intrusion Detection Evaluation Program, prepared and managed by MIT Lincoln Laboratory. The data was collected over nine weeks and consists of raw tcpdump traffic in a local area network (LAN) that simulates the environment of a typical United States Air Force LAN. Some network attacks were deliberately carried out during the recording period. (Note: Description of data set is well described at https://www.unb.ca/cic/datasets/nsl.html)
 
 
 ### Task
@@ -75,7 +77,7 @@ Host-based features are similar to Time-based features, except instead of analyz
  This category contains feataures: Dst Host Count, Dst Host Srv Count, Dst Host Same Srv Rate, Dst Host Diff Srv Rate, Dst Host Same Src Port Rate, Dst Host Srv Diff Host Rate, Dst Host Serror Rate, Dst Host Srv Serror Rate, Dst Host Rerror Rate, and Dst Host Srv Rerror Rate
 
 ### Access
-The dataset was downloaded from  https://www.kaggle.com/hassan06/nslkdd to my desktop and then uploaded to my Github Repo. From my Github Repo I loaded to AML work space using "TabularDatasetFactory" class function "from_delimited_files" to create a TabularDataset to represent tabular data in .CSV delimited file using AML Azure SDK. (Note: Description of data set is well described at https://www.unb.ca/cic/datasets/nsl.html)
+The dataset was downloaded from  https://www.kaggle.com/hassan06/nslkdd to my desktop and then uploaded to my Github Repo. From my Github Repo I loaded to AML work space using "TabularDatasetFactory" class function "from_delimited_files" to create a TabularDataset to represent tabular data in .CSV delimited file using AML Azure SDK. 
 
 Once Tabular data set was downloaded, it is converted to pandas data frame, cleaned it for accepting input for RandomForestClassifier by using API's get_dummies for categorial variables and Scalar object for continious variables. Here cleaning step step consists of data exploration, data cleaning, preprocessing, feature engineering. Here I checked data types (continious) for continious I used scaling features and created scalar object and stored for later to use it for testing data,  ordinal (categories) I used 'get_dummies'. This step is performed for Hyperdrive config model creation project.
 

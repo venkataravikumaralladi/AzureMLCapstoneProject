@@ -17,14 +17,13 @@ Table of contents
 
 ## Summary
 
-This Capstone project is part of the Udacity Azure ML Nanodegree. The capstone project covers steps and requirements of an end-to-end machine learning pipeline in Azure. In this project, I used a NSL-KDD dataset from Kaggle to build a Intrusion Detection System (IDS) classifier. In First part of project we explore techniques that help to improve the prediction performance of a single model through hyerparameter tuning (file: hyperparameter_tuning.ipnyb) which uses HyperDrive package to tune hyperparameters of selected model and returns best model. In second part of project we use automated machine learning (AutoML) feature for automating the time consuming, iterative tasks (like feature selection,
-feature generation, trying out various models) of machine learning  model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.  
+This Capstone project is part of the Udacity Azure ML Nanodegree. The capstone project covers steps and requirements of an end-to-end machine learning pipeline in Azure. In this project, I used a NSL-KDD dataset from Kaggle to build a Intrusion Detection System (IDS) classifier. In First part of project we explore techniques that help to improve the prediction performance of a single model through hyerparameter tuning (file:`hyperparameter_tuning.ipnyb`) which uses HyperDrive package to tune hyperparameters of selected model and returns best model. In second part of project we use automated machine learning (AutoML) feature for automating the time consuming, iterative tasks (like feature selection, feature generation, trying out various models) of machine learning  model development (`automl.ipnyb`). It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.  
 
 Between the AutoML and Hyperdrive experiment runs, a best performing model was selected for deployment.Finally we deploy model as a webservice for online real-time scoring. Request is sent to webservice to test deployed model. Below diagrams shows overview in pictorial form.
 
+![Training architecuture snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/IntrusionDetectionSystemTrainingPart.png)
 
-
-
+![Deployment architecuture snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/IntrusionDetectionSystemDeploymentPart.png)
 
 In this I will showcase how we can use data science as a investigation tool for network traffic, here we use classfication algorithm to distinguish between normal traffic (good connections) and intrusion or attacks traffic (bad connections). A connection is a sequence of TCP packets starting and ending at some well difined times, between which data flows to and from source IP address  to a target IP address under some well defined protocol. We will create Intrusion Detection System (IDS) 
 

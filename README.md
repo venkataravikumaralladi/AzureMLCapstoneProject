@@ -116,24 +116,18 @@ AutoML is run on compute cluster named "cpu_cluster".  AutoML Run details snap s
 
 ![AutomML Widget snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/afterreview/automlrunwidget.png)
 
+### Results
+
 AutoML Best model details
 
 ![AutomML best model with RunID](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/afterreview/automlbestmodelnotebookoutput.png)
 
+Auto ML gave best model accuracy of `0.9990`. Model selected is `LightGBMClassifier`and parameters of model is shown in above snapshot.
 
-### Results
 
-Various model explored by AutomML snapshot is shown below
+Confusion matrix and accuracy metrics of best model selected is shown below
 
-![AutomML various models explored](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLModelsExplored.png)
-
-Auto ML gave best model accuracy of `0.9990`. Model selected is `StackEnsembleClassifier`and parameters of model is shown in below snapshot.
-
-![AutomML best model parameters](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutomMLBestModelDetails.png)
-
-Confusion matrix of best model selected is shown below
-
-![AutomML best model confusion matrix](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLConfusionMatrix.png)
+![AutomML best model confusion matrix](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/afterreview/automlbestmetrics.png)
 
 ## Hyperparameter Tuning
 

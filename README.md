@@ -156,13 +156,9 @@ Hyperdrive `RunDetails` widget snapshot is shown below
 
 ![Hyperparam run details](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/hyperdrive/HyperdriveRunWidgetSnapshot.png)
 
-![Hyperdrive runs](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/hyperdrive/HyperdriveChildRuns.png)
-
 Best run hyperdrive decision tree classifier hyper parameters snapshot is provided below
 
 ![Hyper drive bestrun hyper parameters](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/hyperdrive/HyperdriveBestRunIDWithParameters.png)
-
-
 
 ## Model Deployment
 
@@ -209,7 +205,7 @@ Below snap shot shows deployed end point in azure in healthy state.
 
 Screen cast link
 
-![screen cast link](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/CapstoneProjScreencast.mp4)
+![screen cast link](https://youtu.be/cZqrJAk4Mug)
 
 ## Standout Suggestions
 I have performed deployment of hyper model for study purpose how to use various standarization techniques developed during training to be used and applied for request. I studied about enabling application insights after deployment.

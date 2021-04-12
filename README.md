@@ -173,8 +173,26 @@ Best run hyperdrive decision tree classifier hyper parameters snapshot is provid
 ## Model Deployment
 
 Deployment is about delivering a trained model in to production so that it can be consumed by other. Here we deploy best model which is from AutoML with accuracy `0.9990`.
-Here we deploy a model as a webservice on Azure Container Instance (ACI). Request is sent to service through scoring uri. Here we write entry script (`inference\autoscore.py`)
-receives data submitted to a deployed web service, perform any actions that requires adaptation for inputs to model and `model.predict` is called. It then takes the response returned by the model and returns that to the client. The script is specific to your model. It must understand the data that the model expects and returns.
+Here we deploy a model as a webservice on Azure Container Instance (ACI). Request is sent to service through scoring uri.
+
+Entry script provided as part of deployment receives data submitted to a deployed web service, perform any actions that requires adaptation for inputs to model and `model.predict` is called. It then takes the response returned by the model and returns that to the client. The script is specific to your model. It must understand the data that the model expects and returns.
+
+An inference configuration describes how to set up the web-service containing your model. It's used later, when you deploy the model. Here we pass entry script file which acts as a adaptor which converts received service input to model input. Deployed environment should be same as a environment on which model is created, so we use best run output environment by calling `best_auto_run.get_environment()`. Below line is part of the code that defines inference configuration. <br>
+
+`inference_config = InferenceConfig(entry_script=autoscore_file, environment=best_auto_run.get_environment())` <br>
+
+
+Before deploying your model, you must define the deployment configuration. The deployment configuration is specific to the compute target that will host the web service. For this project I am deploying on Azure Container Instance (ACI) which is mostly used during development and testing. ACI will help us in quickly deploy and validate your model. 
+Here we do not need to create ACI containers ahead of time. They are created as part of the deployment process. ACI is used for low-scale CPU-based workloads that require less than 48 GB of RAM. Here I am using ACI deployment configuration as number of cpu cores as `1`, memory in gb is `4` and `application insights` are enabled as shown in below code.
+I used ACI and configuration parameters as mentioned because ACI is best suited for development and for this project mentioned parameters are good enough for job. <br>
+
+`deployment_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=4, enable_app_insights=True)`
+
+After defining inference configuration and deployment configuration, we can delploy the model as shown below which ends up as webservice. The resulting Webservice is a real-time endpoint that can be used for inference requests. Here we pass inference configuration, deployment configuration, model as input as arguments as shown below. <br>
+
+`ids_auto_websvc = Model.deploy(vrk_auto_ids_ws, 'vrk-auto-ids', [ids_auto_mdl], inference_config, deployment_config)`
+
+After deployment is successfull end user will use the end point created as part of the deployment. End user can use the swagger documentation or user provided documentation to understand what inputs are required to use the service, what output to be expected, and how to interpret the output. Below snap shot shows user documentation of input accepted for the deployed model for this project. Request is sent to deployed service by calling "post" call with arguments as scoring url, input data, and application header. In our case if response is processed correctley response code is 200 and value of '0' means normal traffic data, and '1' means attacking traffic data. 
 
 Below show input accept by IDS service.
 

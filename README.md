@@ -114,7 +114,7 @@ AutoML Config:
 
 AutoML is run on compute cluster named "cpu_cluster".  AutoML Run details snap shot is attached below
 
-![AutomML Widget snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/automl/AutoMLWidgetOuput.png)
+![AutomML Widget snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/snapshots/afterreview/automlrunwidget.png)
 
 AutoML Best model with RunID
 

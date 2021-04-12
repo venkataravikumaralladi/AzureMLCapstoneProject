@@ -23,9 +23,9 @@ This Capstone project is part of the Udacity Azure ML Nanodegree. The capstone p
 
 Between the AutoML and Hyperdrive experiment runs, a best performing model was selected for deployment.Finally we deploy model as a webservice for online real-time scoring. Request is sent to webservice to test deployed model. Below diagrams shows overview in pictorial form.
 
-![Training architecuture snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/IntrusionDetectionSystemTrainingPart.png)
+![Training architecuture snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/static/IntrusionDetectionSystemTrainingPart.png)
 
-![Deployment architecuture snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/IntrusionDetectionSystemDeploymentPart.png)
+![Deployment architecuture snapshot](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/static/IntrusionDetectionSystemDeploymentPart.png)
 
 In this I will showcase how we can use data science as a investigation tool for network traffic, here we use classfication algorithm to distinguish between normal traffic (good connections) and intrusion or attacks traffic (bad connections). A connection is a sequence of TCP packets starting and ending at some well difined times, between which data flows to and from source IP address  to a target IP address under some well defined protocol. We will create Intrusion Detection System (IDS). 
 
@@ -44,7 +44,7 @@ If you are using an Azure Machine Learning Notebook VM, you are all set. Otherwi
   
  Overview of Azure environment snapshot is shown below
  
- ![Overview Azure enviroment](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/AzureOverview.png)
+ ![Overview Azure enviroment](https://github.com/venkataravikumaralladi/AzureMLCapstoneProject/blob/main/static/AzureOverview.png)
 
 By fulfilling above requirements we can able to build Intrusion Detection System (IDS). IDS system is build using hyper drive concepts using Random Forest model (NetworkdataClassifier.py) implemented in hyperparameter_tuning.ipynb. Alternatively IDS model system is built using AutoML feature implemented in automl.ipynb. Best model is selected and deployed as webservice in Azure Container Instance (ACI).
 

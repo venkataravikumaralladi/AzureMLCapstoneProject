@@ -207,7 +207,8 @@ Below snap shot shows deployed end point in azure in healthy state.
 
 Screen cast link
 
-![screen cast link](https://www.youtube.com/watch?v=cZqrJAk4Mug)
+https://www.youtube.com/watch?v=cZqrJAk4Mug&t=5s
+
 
 ## Standout Suggestions
 I have performed deployment of hyper model for study purpose how to use various standarization techniques developed during training to be used and applied for request. I studied about enabling application insights after deployment.

@@ -148,6 +148,8 @@ Grid parameter sampling is chosen values in hyper parameters value space. In thi
 
 By specifying early termination policy we can automatically terminate poorly performing runs. Early termination improves computational efficiency. Bandit early termination policy is used to stop training if performance of current run is not with in the best run limits to avoid resource usage. Median stopping is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs with primary metric values worse than the median of averages. I have choosen Bandit early for aggressive termination, where as median stopping can be used if we don't want aggresive termination.
 
+`Note`: Copy `hyperparameter_tuning.ipnyb` in notebook folder, `NetworkdataClassifier.py` in `src` folder, and `training_attack_types.txt` in `input` folder to root folder (i.e. `AzureMLCapstoneProject`), after geting from github. If I did not perform above step I am facing files not found error. This it to be handled for future work.
+
 
 ### Results
 
@@ -205,7 +207,7 @@ Below snap shot shows deployed end point in azure in healthy state.
 
 Screen cast link
 
-![screen cast link](https://youtu.be/cZqrJAk4Mug)
+![screen cast link](https://www.youtube.com/watch?v=cZqrJAk4Mug)
 
 ## Standout Suggestions
 I have performed deployment of hyper model for study purpose how to use various standarization techniques developed during training to be used and applied for request. I studied about enabling application insights after deployment.

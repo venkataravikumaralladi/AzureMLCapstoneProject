@@ -194,7 +194,12 @@ After defining inference configuration and deployment configuration, we can delp
 
 After deployment is successfull end user will use the end point created as part of the deployment. End user can use the swagger documentation or user provided documentation to understand what inputs are required to use the service, what output to be expected, and how to interpret the output. Below snap shot shows user documentation of input accepted for the deployed model for this project. Request is sent to deployed service by calling "post" call with arguments as scoring url, input data, and application header. In our case if response is processed correctley response code is 200 and value of '0' means normal traffic data, and '1' means attacking traffic data. 
 
-`resp = requests.post(scoring_uri, input_data, headers=headers)`
+Convert input dictionary shown in below snap shot to JSON string as shown below and headers information in snapshot below.
+
+`input_data = json.dumps(data)` <br>
+`resp = requests.post(scoring_uri, input_data, headers=headers)` <br>
+
+Response returned as result. Response is parsed for response code and result of prediction. Response out put is shown in below snapshot.
 
 Below show input accept by IDS service.
 

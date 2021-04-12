@@ -144,7 +144,7 @@ using pandas and scikit in `NetworkdataClassifier.py`.
  for the information gain. For simplicity and with the present knowledge I have I selected split crieterion as `gini` and `entropy`.
 
 `NetworkdataClassifier.py` accepts second argument as `--max_depth`(the maximum depth of the tree). max_depth are sampled using choice `(60, 90, 120)`. Small max depth
- values correspond to small size trees and hight values of max depth corresponds to large trees. Here I selected 60, 90, and 120 because I have number of features after feature engineering are `127`. so I tried max_depth of tree in range of low (`60`), medium (`90`) and high (`120`). 
+ values correspond to small size trees and hight values of max depth corresponds to large trees. Here I selected 60, 90, and 120 because I have number of features after feature engineering are `127`. so I tried max_depth of tree in range of low (`60`), medium (`90`) and high (`120`). Here `uniform` sampling is not considered as low values does not make sense, but in future work I will try uniform sampling if it does make a difference if any.
 
 Decision tree classifier is selected as it can handle categorical and real-valued features with ease—little to no preprocessing required. In this case we have lot of features and it is not clear from data,is data is linearly seperable so decision tree classifier is selected.
 

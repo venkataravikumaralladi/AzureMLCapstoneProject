@@ -34,7 +34,7 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 
 # create nsl-kdd network train data
 nsl_kdd_webpath = [
-                          'https://raw.githubusercontent.com/venkataravikumaralladi/AzureMLCapstoneProject/main/KDDTrain.csv'
+                      'https://raw.githubusercontent.com/venkataravikumaralladi/AzureMLCapstoneProject/main/input/KDDTrain.csv'
                   ]
 
 #create network analysis data set in tabular format using TabularDatasetFactory
@@ -121,10 +121,10 @@ class NSLKDDFeatureAnalysis:
       pickle.dump(strd_scalar_continious, open('outputs/ids_cont_scalerobj.pkl', 'wb'))
             
       return train_data_X, train_Y
-      
+
    
 
-    	
+
 def main():
     
     run = Run.get_context()
@@ -162,9 +162,9 @@ def main():
 if __name__ == '__main__':
     
     main()    
-	
+
 	
 
     
-   
+
     
